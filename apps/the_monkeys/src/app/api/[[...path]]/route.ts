@@ -2,8 +2,6 @@ import { cookies } from 'next/headers';
 
 import { API_URL, API_URL_V2 } from '@/constants/api';
 
-export const dynamic = 'force-dynamic';
-
 async function proxyRequest(req: Request) {
   const cookieStore = cookies();
   const authToken = cookieStore.get('mat');
@@ -65,7 +63,6 @@ async function proxyRequest(req: Request) {
         'Cache-Control',
         'no-cache, no-store, must-revalidate'
       );
-      responseHeaders.set('Pragma', 'no-cache');
       responseHeaders.set('Expires', '0');
       responseHeaders.set('Netlify-Vary', 'query');
     }

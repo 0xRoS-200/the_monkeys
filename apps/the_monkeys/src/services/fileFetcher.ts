@@ -8,7 +8,6 @@ const fetcher = (url: string, config?: AxiosRequestConfig) =>
       responseType: 'blob',
       headers: {
         'Cache-Control': 'no-cache',
-        Pragma: 'no-cache',
         ...config?.headers,
       },
       ...config,
